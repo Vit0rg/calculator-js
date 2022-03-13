@@ -1,0 +1,106 @@
+*:root
+{
+  --rose-hue: 325;
+  --neutral: 0, 0%;
+}
+
+*, *::before, *::after
+{
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: normal;
+}
+
+body
+{
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, hsl(var(--rose-hue), 100%, 30%), hsl(var(--neutral), 0%));
+}
+
+header, footer
+{
+  background-color: hsl(var(--neutral), 10%, 0.3);
+  color: hsl(var(--neutral), 90%);
+  text-align: center;
+  font-size: clamp(16px + 1.5vw, 12vw, 14vw);
+  letter-spacing: .3vh;
+  line-height: 2.5;
+}
+
+main
+{
+  padding: 4%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, minmax(10%, 100px));
+  grid-template-rows: minmax(20%, 120px) repeat(5, 100px);
+}
+
+main > button
+{
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid hsl(var(--rose-hue), 50%, 15%, 0.75);
+  background-color: hsl(var(--neutral), 100%, .8);
+  border-radius: .25rem;
+}
+
+main > button:nth-last-of-type(3)
+{
+  border-bottom-left-radius: 1.25rem;
+}
+
+main > button:last-of-type
+{
+  border-bottom-right-radius: 1.25rem;
+}
+
+main > button:hover
+{
+  background-color: hsl(var(--neutral), 100%, 0.9);
+  border: solid .3vh hsl(var(--neutral), 100%);
+}
+
+main > button:active
+{
+  background-color: hsl(var(--neutral), 100%, 0.5);
+  border: 3px solid hsl(var(--rose-hue), 100%, 40%);
+}
+
+.span-two
+{
+  grid-column: span 2;
+}
+
+.output
+{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 3%;
+  grid-column: 1 / -1;
+  background-color: hsl(var(--rose-hue), 30%, 50%, 0.75);
+  color: hsla(var(--neutral), 100%, 0.8);
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: scroll;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+.output .previous-operand
+{
+ font-size: 1.5rem; 
+}
+
+
+.output .current-operand
+{
+  color: hsl(var(--neutral), 100%, 0.9);
+  font-size: 2.5rem; 
+}
